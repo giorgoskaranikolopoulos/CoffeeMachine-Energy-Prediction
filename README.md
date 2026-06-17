@@ -3,6 +3,12 @@
 This repository contains a Machine Learning and Deep Learning project focused on energy disaggregation (Non-Intrusive Load Monitoring - NILM) for a coffee machine using TensorFlow and Keras.
 
 The main objective is to isolate and predict the individual power consumption of the coffee machine from the total aggregated household electricity signal.
+To achieve this, we implemented, trained, and compared three distinct Recurrent Neural Network (RNN) architectures:
+1. **Simple RNN**
+2. **LSTM** (Long Short-Term Memory)
+3. **GRU** (Gated Recurrent Unit)
+
+The project handles raw signal processing, Sequence-to-Sequence (Seq2Seq) model training, evaluation on denormalized data, and advanced error visualization.
 
 ## 👥 The Team (Contributors)
 * **Georgios Karanikolopoulos** ([@giorgoskaranikolopoulos](https://github.com/giorgoskaranikolopoulos)) 
@@ -29,6 +35,12 @@ The implementation is built using Python inside a Google Colab environment (with
 ---
 
 ## 🛠️ Requirements & Installation
+
+1. Upload the `ComparingBasicRNNArchitectures.ipynb` notebook to Google Colab.
+2. Place the dataset `.txt` files in a folder inside your Google Drive.
+3. Update the `path` variable in the first code cell to point to your specific Google Drive directory:
+   ```python
+   path = "/content/drive/MyDrive/Your_Folder_Name_Here/"
 
 To run this Jupyter Notebook locally or in your own environment, make sure you have the following packages installed:
 
