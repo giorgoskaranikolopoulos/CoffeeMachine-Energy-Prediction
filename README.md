@@ -1,6 +1,6 @@
 # Coffee Machine Energy Disaggregation & Prediction
 
-This repository contains a Machine Learning and Deep Learning project focused on energy disaggregation (Non-Intrusive Load Monitoring - NILM) for a household appliance (specifically, a coffee machine) using TensorFlow and Keras.
+This repository contains a Machine Learning and Deep Learning project focused on energy disaggregation (Non-Intrusive Load Monitoring - NILM) for a coffee machine using TensorFlow and Keras.
 
 The main objective is to isolate and predict the individual power consumption of the coffee machine from the total aggregated household electricity signal.
 
