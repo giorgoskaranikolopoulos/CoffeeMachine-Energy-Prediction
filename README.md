@@ -1,32 +1,35 @@
 # Coffee Machine Energy Disaggregation & Prediction
 
-Αυτό το project αναπτύχθηκε στα πλαίσια πανεπιστημιακής εργασίας και εστιάζει στην ανάλυση και πρόβλεψη της κατανάλωσης ενέργειας μιας συσκευής (καφετιέρας) μέσα από δεδομένα συνολικής οικιακής κατανάλωσης (Aggregated Consumption). 
+This repository contains a Machine Learning and Deep Learning project focused on energy disaggregation (Non-Intrusive Load Monitoring - NILM) for a household appliance (specifically, a coffee machine) using TensorFlow and Keras.
 
-Χρησιμοποιώντας τεχνικές Μηχανικής Μάθησης (Machine Learning) και Deep Learning μέσω του **TensorFlow / Keras**, το μοντέλο εκπαιδεύεται να ξεχωρίζει (disaggregate) το σήμα της καφετιέρας από το συνολικό σήμα ενέργειας.
+The main objective is to isolate and predict the individual power consumption of the coffee machine from the total aggregated household electricity signal.
 
-## 👥 Η Ομάδα Μας
-* **Γεώργιος Καρανικολόπουλος** ([@giorgoskaranikolopoulos](https://github.com/giorgoskaranikolopoulos)) 
-* **Νικόλαος Καραγιώργης** ([@karagionikos](https://github.com/karagionikos)) 
-* **Νικόλαος Καρανίκας** ([@karamessi10](https://github.com/karamessi10))
-
----
-
-## 🚀 Δομή και Λειτουργικότητα Κώδικα
-
-Η υλοποίηση έχει γίνει σε περιβάλλον Python (Google Colab με υποστήριξη GPU) και περιλαμβάνει τα εξής στάδια:
-
-1. **Φόρτωση Δεδομένων:** Σύνδεση με το Google Drive και ανάγνωση των απαραίτητων χρονοσειρών (`CoffeeMachinemaxAgg.txt`, `Input_Data.txt`, κλπ.).
-2. **Κανονικοποίηση (Normalization):** Κλιμάκωση των δεδομένων με βάση τις μέγιστες τιμές τους για βέλτιστη εκπαίδευση του νευρωνικού δικτύου.
-3. **Διαχωρισμός Δεδομένων (Train/Test Split):** * **80%** για την εκπαίδευση (Train set: 40.000 δείγματα).
-   * **20%** για την αξιολόγηση (Test set: 10.000 δείγματα).
-4. **Μετασχηματισμός σε 3D Tensors:** Προετοιμασία των πινάκων (reshape) για να είναι συμβατοί με αρχιτεκτονικές Recurrent (LSTM/GRU) ή Convolutional (1D CNN) του Keras.
-5. **Οπτικοποίηση (Data Visualization):** Παραγωγή διαγραμμάτων που δείχνουν τη συνολική κατανάλωση σε αντιπαραβολή με την κατανάλωση της καφετιέρας.
+## 👥 The Team (Contributors)
+* **Georgios Karanikolopoulos** ([@giorgoskaranikolopoulos](https://github.com/giorgoskaranikolopoulos)) 
+* **Nikolaos Karageorgis** ([@karagionikos](https://github.com/karagionikos)) 
+* **Nikolaos Karanikas** ([@karamessi10](https://github.com/karamessi10)) 
 
 ---
 
-## 🛠️ Προαπαιτούμενα (Requirements)
+## 🚀 Code Pipeline & Features
 
-Για να τρέξετε τον κώδικα τοπικά, θα χρειαστείτε τις παρακάτω βιβλιοθήκες:
+The implementation is built using Python inside a Google Colab environment (with GPU acceleration) and covers the following pipeline stages:
+
+1. **Data Loading:** Connects to Google Drive to read the required time-series data:
+   * `CoffeeMachinemaxAgg.txt` & `CoffeeMachinemaxApp.txt` (Peak consumption values used for scaling).
+   * `Input_Data.txt` (Aggregated household energy usage).
+   * `Output_Data.txt` (Ground-truth individual appliance/coffee machine consumption).
+2. **Data Normalization:** Scales the raw dataset arrays based on their respective maximum values to achieve stable and faster neural network convergence.
+3. **Train/Test Dataset Split:** * **80%** dedicated for training (Train set: 40,000 samples).
+   * **20%** reserved for model evaluation (Test set: 10,000 samples).
+4. **3D Tensor Reshaping:** Automatically reshapes the data vectors into 3D Tensors, making them compatible with Recurrent Neural Network layers (LSTM / GRU) or Convolutional layers (1D CNN) in Keras.
+5. **Data Visualization:** Employs an intelligent thresholding technique to find activation windows where the coffee machine is actively running. Generates clean dual y-axis plots contrasting total household load against the isolated appliance load.
+
+---
+
+## 🛠️ Requirements & Installation
+
+To run this Jupyter Notebook locally or in your own environment, make sure you have the following packages installed:
 
 ```bash
 pip install numpy matplotlib tensorflow
