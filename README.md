@@ -15,10 +15,11 @@ The main objective is to isolate and predict the individual power consumption of
 
 The implementation is built using Python inside a Google Colab environment (with GPU acceleration) and covers the following pipeline stages:
 
-1. **Data Loading:** Connects to Google Drive to read the required time-series data:
-   * `CoffeeMachinemaxAgg.txt` & `CoffeeMachinemaxApp.txt` (Peak consumption values used for scaling).
-   * `Input_Data.txt` (Aggregated household energy usage).
-   * `Output_Data.txt` (Ground-truth individual appliance/coffee machine consumption).
+1. The project expects the following dataset files (provided in `.txt` format):
+* `Input_Data.txt`: Aggregated household power consumption (features).
+* `Output_Data.txt`: True power consumption of the coffee machine (targets).
+* `CoffeeMachinemaxAgg.txt`: Maximum aggregated power value (used for normalization/denormalization).
+* `CoffeeMachinemaxApp.txt`: Maximum appliance power value (used for normalization/denormalization).
 2. **Data Normalization:** Scales the raw dataset arrays based on their respective maximum values to achieve stable and faster neural network convergence.
 3. **Train/Test Dataset Split:** * **80%** dedicated for training (Train set: 40,000 samples).
    * **20%** reserved for model evaluation (Test set: 10,000 samples).
